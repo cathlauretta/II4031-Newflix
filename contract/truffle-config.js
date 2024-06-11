@@ -42,9 +42,11 @@
  */
 
 // require('dotenv').config();
-// const { MNEMONIC, PROJECT_ID } = process.env;
+const mnemonic = 'hobby bullet churn order script wash until lens boil lab path whip';
+const privateKey = 'e7e575caf52cd9399e08338f78d503e6f030a4e04e95af0bbe9b4e19347eb4f5';
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+const api_key = 'https://sepolia.infura.io/v3/cd8af217072f442ab03a34915956b899';
 
 module.exports = {
   /**
@@ -64,11 +66,11 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 7545,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none)
+    },
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -96,11 +98,19 @@ module.exports = {
     //   network_id: 2111,   // This network is yours, in the cloud.
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
+    sepolia: {
+      provider: () => new HDWalletProvider(privateKey, api_key),
+      network_id: 11155111,
+      gas: 55000000,
+      confirmations:12,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
   },
 
   // Set default mocha options here, use special reporters, etc.
   mocha: {
-    // timeout: 100000
+     
   },
 
   // Configure your compilers
