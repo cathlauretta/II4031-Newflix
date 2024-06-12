@@ -32,7 +32,7 @@ const Home = () => {
 
     return (
         <Flex width={'100%'} flexDirection='column' gap={8} alignItems='center'>
-            <Navbar username='Cathleen'/>
+            <Navbar username={user_address}/>
             <Flex>
                 <Box>
                     <Heading size="2xl" textAlign={'center'}>
@@ -49,13 +49,13 @@ const Home = () => {
                     return (
                         <WrapItem key={index}>
                             {videoIndex === 0 && (
-                                <VideoCard profile='favicon.ico' image='vercel.svg' title={`Genshin Full Story Before Natlan MOD 0`} text='Video Description Lorem ipsum'/>
+                                <VideoCard profile='favicon.ico' image='mondstadt.jpg' title={`Genshin Mondstadt Region`} text='Land of Anemo - God of Freedom'/>
                             )}
                             {videoIndex === 1 && (
-                                <VideoCard profile='favicon.ico' image='vercel.svg' title={`Genshin Full Story Before Natlan MOD 1`} text='Video Description Lorem ipsum'/>
+                                <VideoCard profile='favicon.ico' image='liyue.jpg' title={`Genshin Liyue Region`} text='Land of Geo - God of Contract'/>
                             )}
                             {videoIndex === 2 && (
-                                <VideoCard profile='favicon.ico' image='vercel.svg' title={`Genshin Full Story Before Natlan MOD 2`} text='Video Description Lorem ipsum'/>
+                                <VideoCard profile='favicon.ico' image='fontaine.jpg' title={`Genshin Fontaine Region`} text='Land of Hydro - God of Justice'/>
                             )}
                         </WrapItem>
                     );
