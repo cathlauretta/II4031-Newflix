@@ -103,6 +103,7 @@ module.exports = {
     // }
     sepolia: {
       provider: () => new HDWalletProvider(MetaprivateKey, api_key2),
+      gasLimit : 10000000,
       networkCheckTimeout: 100000,
       timeoutBlocks: 200,
       network_id: 11155111,
@@ -118,7 +119,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.13",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.20",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

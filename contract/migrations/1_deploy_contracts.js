@@ -1,8 +1,5 @@
-const ConvertLib = artifacts.require("ConvertLib");
-const MetaCoin = artifacts.require("MetaCoin");
+var NFTCollection = artifacts.require("./NFTCollection.sol");
 
 module.exports = function(deployer) {
-  //deployer.deploy(ConvertLib);
-  //deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
+  deployer.deploy(NFTCollection,"URI HERE","NewFlix","NWFX","0x83210c3093Dfc3B83096068a6C3166FF4776684C");
 };
