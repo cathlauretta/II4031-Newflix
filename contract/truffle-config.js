@@ -43,10 +43,12 @@
 
 // require('dotenv').config();
 const mnemonic = 'hobby bullet churn order script wash until lens boil lab path whip';
-const privateKey = 'e7e575caf52cd9399e08338f78d503e6f030a4e04e95af0bbe9b4e19347eb4f5';
+const MetaprivateKey = ['0xe7e575caf52cd9399e08338f78d503e6f030a4e04e95af0bbe9b4e19347eb4f5'];
+const cathleenprivateKey = ['0x3d0b1076fa0fa2311f94153144f73b04282d15467cd4486289a9c5ba07cf5543'];
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 const api_key = 'https://sepolia.infura.io/v3/cd8af217072f442ab03a34915956b899';
+const api_key2 = "wss://ethereum-sepolia-rpc.publicnode.com	";
 
 module.exports = {
   /**
@@ -67,10 +69,11 @@ module.exports = {
     // options below to some value.
     //
     development: {
-     host: "127.0.0.1",     // Localhost (default: none)
-     port: 7545,            // Standard Ethereum port (default: none)
-     network_id: "*",       // Any network (default: none)
-    },
+      provider: () => new HDWalletProvider(cathleenprivateKey, "http://127.0.0.1:8545/"),
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+     },
     //
     // An additional network, but with some advanced options…
     // advanced: {
@@ -99,11 +102,10 @@ module.exports = {
     //   production: true    // Treats this network as if it was a public net. (default: false)
     // }
     sepolia: {
-      provider: () => new HDWalletProvider(privateKey, api_key),
-      network_id: 11155111,
-      gas: 55000000,
-      confirmations:12,
+      provider: () => new HDWalletProvider(MetaprivateKey, api_key2),
+      networkCheckTimeout: 100000,
       timeoutBlocks: 200,
+      network_id: 11155111,
       skipDryRun: true
     },
   },
@@ -112,11 +114,11 @@ module.exports = {
   mocha: {
      
   },
-
+  
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.21",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.13",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
